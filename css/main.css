@@ -648,3 +648,15 @@ details .answer {
   opacity:.45; pointer-events:none; z-index:0;
 }
 #about>*{ position:relative; z-index:1; }
+
+
+/* Background for Services ("What I do") */
+#services{ position: relative; }
+#services::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url('../img/what.webp');
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  opacity:.35; pointer-events:none; z-index:0;
+}
+#services > *{ position:relative; z-index:1; }
