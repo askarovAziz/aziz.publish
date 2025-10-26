@@ -59,6 +59,20 @@ function applyLanguage(language, options = {}) {
   if (langButton) {
     langButton.textContent = normalized;
   }
+
+  document.querySelectorAll('[data-aria-label-en], [data-aria-label-ru]').forEach((element) => {
+    const label = normalized === 'EN' ? element.getAttribute('data-aria-label-en') : element.getAttribute('data-aria-label-ru');
+    if (label) {
+      element.setAttribute('aria-label', label);
+    }
+  });
+
+  document.querySelectorAll('[data-href-en], [data-href-ru]').forEach((element) => {
+    const href = normalized === 'EN' ? element.getAttribute('data-href-en') : element.getAttribute('data-href-ru');
+    if (href) {
+      element.setAttribute('href', href);
+    }
+  });
 }
 
 function initLanguageToggle() {
@@ -72,7 +86,7 @@ function initLanguageToggle() {
     }
   })();
 
-  const initialLanguage = urlLanguage || stored || 'RU';
+  const initialLanguage = urlLanguage || stored || 'EN';
   applyLanguage(initialLanguage, {
     persist: true,
     syncUrl: Boolean(urlLanguage),
