@@ -271,6 +271,61 @@ document.querySelectorAll(".stats-card").forEach((card) => {
   progressObserver.observe(card)
 })
 
+// ================= COUNT EFFECT ANIMATION =================
+const countObserverOptions = {
+  threshold: 0.15,
+  rootMargin: "0px 0px -50px 0px",
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const countElements = entry.target.querySelectorAll(".count-number")
+      countElements.forEach((el) => {
+        const target = Number.parseFloat(el.dataset.target)
+        const format = el.dataset.format || "number"
+        const prefix = el.dataset.prefix || ""
+        const suffix = el.dataset.suffix || ""
+        const duration = 2000 // 2 seconds animation
+
+        animateCount(el, target, format, prefix, suffix, duration)
+      })
+      countObserver.unobserve(entry.target)
+    }
+  })
+}, countObserverOptions)
+
+function animateCount(element, target, format, prefix, suffix, duration) {
+  let current = 0
+  const increment = target / (duration / 16)
+  const startTime = Date.now()
+
+  function update() {
+    const elapsed = Date.now() - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    current = target * progress
+
+    let displayValue
+    if (format === "decimal") {
+      displayValue = current.toFixed(1)
+    } else {
+      displayValue = Math.floor(current)
+    }
+
+    element.textContent = prefix + displayValue + suffix
+
+    if (progress < 1) {
+      requestAnimationFrame(update)
+    }
+  }
+
+  update()
+}
+
+document.querySelectorAll(".result-card").forEach((card) => {
+  countObserver.observe(card)
+})
+
 // ================= PORTFOLIO SLIDER =================
 const slider = document.querySelector(".slider")
 const prevBtn = document.querySelector(".slider-nav-prev")
