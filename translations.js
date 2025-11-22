@@ -61,7 +61,8 @@ const translations = {
       card3: "Real-time Insights",
       card4: "Mobile First",
       ctaTitle: "Ready to Transform Your Advertising?",
-      ctaSubtitle: "Join thousands of marketers using our platform to automate, optimize, and scale their ad campaigns.",
+      ctaSubtitle:
+        "Join thousands of marketers using our platform to automate, optimize, and scale their ad campaigns.",
       ctaButton: "Start Free Trial",
     },
     results: {
@@ -370,7 +371,8 @@ const translations = {
       card3: "Insights в реальном времени",
       card4: "Мобильный приоритет",
       ctaTitle: "Готовы прокачать вашу рекламу?",
-      ctaSubtitle: "Тысячи маркетологов используют мой подход, чтобы автоматизировать, оптимизировать и масштабировать кампании.",
+      ctaSubtitle:
+        "Тысячи маркетологов используют мой подход, чтобы автоматизировать, оптимизировать и масштабировать кампании.",
       ctaButton: "Начать бесплатный период",
     },
     results: {

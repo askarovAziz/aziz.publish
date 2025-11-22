@@ -33,6 +33,7 @@ header {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo {
@@ -45,6 +46,8 @@ header {
   letter-spacing: 2px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  /* Ensure logo comes first on all devices */
+  order: 1;
 }
 
 .logo:hover {
@@ -54,6 +57,8 @@ header {
 nav {
   display: flex;
   gap: 2rem;
+  /* Place navigation second on desktop */
+  order: 2;
 }
 
 nav a {
@@ -93,6 +98,8 @@ nav a:hover::after {
   cursor: pointer;
   gap: 6px;
   z-index: 1001;
+  /* Place burger menu last on mobile */
+  order: 3;
 }
 
 .burger-menu span {
@@ -2703,6 +2710,8 @@ nav a:hover::after {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  /* Place language switcher last on desktop */
+  order: 3;
 }
 
 .language-switcher:hover {
@@ -2729,11 +2738,17 @@ nav a:hover::after {
 /* Mobile Language Switcher */
 @media (max-width: 768px) {
   .language-switcher {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1002;
-    padding: 0.75rem 1.25rem;
+    /* Removed absolute positioning to let it sit naturally in flexbox */
+    padding: 0.6rem 1rem;
     box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+    /* Keep switcher between logo and burger on mobile */
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-switcher {
+    /* Removed absolute positioning overrides */
+    padding: 0.55rem 0.95rem;
   }
 }
