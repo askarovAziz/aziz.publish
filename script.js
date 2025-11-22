@@ -29,6 +29,45 @@ if (burgerMenu && mobileMenu) {
   })
 }
 
+// ================= FAQ ACCORDION FUNCTIONALITY =================
+const faqItems = document.querySelectorAll(".faq-item")
+
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question")
+
+  question.addEventListener("click", () => {
+    // Close all other items
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active")
+      }
+    })
+
+    // Toggle current item
+    item.classList.toggle("active")
+  })
+})
+
+// ================= SCROLL TO TOP BUTTON =================
+const scrollToTopBtn = document.getElementById("scrollToTopBtn")
+
+// Show/hide button based on scroll position
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add("show")
+  } else {
+    scrollToTopBtn.classList.remove("show")
+  }
+})
+
+// Smooth scroll to top on button click
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+})
+
 // ================= 3D CANVAS SETUP (Optimized for Mobile) =================
 const canvas = document.getElementById("canvas3d")
 if (canvas) {
@@ -351,27 +390,50 @@ if (slider && prevBtn && nextBtn) {
   let currentIndex = 0
   const cards = document.querySelectorAll(".portfolio-card")
   const cardWidth = 320 + 32 // card width + gap
-  const maxIndex = cards.length - Math.floor(slider.parentElement.offsetWidth / cardWidth)
+  const containerWidth = slider.parentElement.offsetWidth
+  const visibleCards = Math.floor(containerWidth / cardWidth)
+  const totalCards = cards.length
+  const maxIndex = totalCards
+
+  let autoScrollInterval
+
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalCards
+      updateSlider()
+    }, 2000)
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval)
+  }
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
+  }
 
   nextBtn.addEventListener("click", () => {
-    if (currentIndex < maxIndex) {
-      currentIndex++
-      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
-    }
+    stopAutoScroll()
+    currentIndex = (currentIndex + 1) % totalCards
+    updateSlider()
+    startAutoScroll()
   })
 
   prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--
-      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
-    }
+    stopAutoScroll()
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards
+    updateSlider()
+    startAutoScroll()
   })
 
   // Reset on window resize
   window.addEventListener("resize", () => {
     currentIndex = 0
-    slider.style.transform = "translateX(0)"
+    updateSlider()
   })
+
+  // Start auto-scroll on page load
+  startAutoScroll()
 }
 
 // ================= CONTACT FORM =================
@@ -405,4 +467,3 @@ document.querySelectorAll(".cta-button").forEach((button) => {
 })
 
 console.log("✨ Website initialized successfully! Mobile optimizations active:", isMobile())
-

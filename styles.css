@@ -1444,11 +1444,56 @@ nav a:hover::after {
   font-size: 0.9rem;
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .portfolio-card-image::before {
-  content: "Add your image here";
-  opacity: 0.5;
+  content: "";
+}
+
+.portfolio-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(3, 7, 18, 0.35) 100%);
+}
+
+.portfolio-img-realestate {
+  background-image: url("img/site.webp");
+}
+
+.portfolio-img-bella {
+  background-image: url("img/bella.webp");
+}
+
+.portfolio-img-jasmin {
+  background-image: url("img/localseo.webp");
+}
+
+.portfolio-img-touch {
+  background-image: url("img/touch.webp");
+}
+
+.portfolio-img-mirage {
+  background-image: url("img/mirage.webp");
+}
+
+.portfolio-img-inn {
+  background-image: url("img/innspa.webp");
+}
+
+.portfolio-img-velvet {
+  background-image: url("img/velvet.webp");
+}
+
+.portfolio-img-castle {
+  background-image: url("img/castle.webp");
+}
+
+.portfolio-img-shiestar {
+  background-image: url("img/shine.webp");
 }
 
 .portfolio-card-content {
@@ -1956,13 +2001,13 @@ nav a:hover::after {
 }
 
 .fade-in {
-  animation: fadeInUp 0.8s ease-out;
-  animation-fill-mode: both;
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 .fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
   animation-play-state: paused;
 }
 
@@ -2243,7 +2288,7 @@ nav a:hover::after {
     grid-template-columns: 1fr;
   }
   .large-card {
-    grid-column: span 1; /* Override span 2 for mobile */
+    grid-column: span 1;
   }
   .insight-card {
     padding: 24px;
@@ -2267,7 +2312,6 @@ nav a:hover::after {
     padding: 1rem;
     margin-top: 65px;
   }
-
 
   .hero-content {
     gap: 1.5rem;
@@ -2382,29 +2426,264 @@ nav a:hover::after {
 }
 
 .card-image {
-    width: 100%;
-    height: 160px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-bottom: 12px;
+  width: 100%;
+  height: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 12px;
 }
 
+/* ============ FAQ SECTION ============ */
+.faq-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  z-index: 10;
+  background: linear-gradient(to bottom, #0a0e27, #0f172a);
+}
 
+.faq-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
+.faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
 
+.section-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: #00ff88;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
+.faq-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
 
+.faq-description {
+  font-size: 18px;
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 60px;
+}
 
+@media (min-width: 768px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
+.faq-item {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
+.faq-item:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.1);
+}
 
+.faq-question {
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 200, 255, 0.03));
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: all 0.3s ease;
+}
 
+.faq-question:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 200, 255, 0.05));
+}
 
+.faq-question h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  text-align: left;
+}
 
+.faq-toggle {
+  font-size: 24px;
+  color: #00ff88;
+  margin-left: 16px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  font-weight: 300;
+}
 
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
 
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
 
+.faq-item.active .faq-answer {
+  max-height: 400px;
+  padding: 0 24px 20px 24px;
+}
 
+.faq-answer p {
+  color: #cdeef6;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
 
+.faq-cta {
+  text-align: center;
+  padding: 40px 24px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 16px;
+}
 
+.faq-cta p {
+  color: #b0b0b0;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* ============ FADE ANIMATIONS ============ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* ============ SCROLL TO TOP BUTTON ============ */
+.scroll-to-top {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00ffff, #00ff88);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 999;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px) scale(1);
+  box-shadow: 0 0 50px rgba(0, 255, 136, 0.7);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top svg {
+  width: 24px;
+  height: 24px;
+  color: #0a0e27;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Animation for button appearance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-to-top.show {
+  animation: slideInUp 0.4s ease-out;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 45px;
+    height: 45px;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}
