@@ -11,6 +11,13 @@
     <header>
         <div class="header-container">
             <div class="logo" id="logoButton" style="cursor: pointer;">Aziz Askarov</div>
+            
+            <!-- Moved language switcher here (between logo and burger) -->
+            <button class="language-switcher" id="languageSwitcher" aria-label="Switch Language">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-text" id="currentLang">EN</span>
+            </button>
+
             <div class="burger-menu" id="burgerMenu">
                 <span></span>
                 <span></span>
@@ -27,10 +34,10 @@
                 <a href="#insights" data-i18n="nav.insights">Insights</a>
             </nav>
             <!-- Add language switcher button -->
-            <button class="language-switcher" id="languageSwitcher" aria-label="Switch Language">
-                <span class="lang-icon">🌐</span>
-                <span class="lang-text" id="currentLang">EN</span>
-            </button>
+            <!-- <button class="language-switcher" id="languageSwitcher" aria-label="Switch Language"> -->
+                <!-- <span class="lang-icon">🌐</span> -->
+                <!-- <span class="lang-text" id="currentLang">EN</span> -->
+            <!-- </button> -->
         </div>
     </header>
 
@@ -123,16 +130,16 @@
                     ✨ PERFORMANCE MARKETING
                 </div>
 
-                <h2 class="main-title fade-in-up" style="animation-delay: 0.3s">
+                <h1 class="main-title fade-in-up" style="animation-delay: 0.3s">
                     Automate Your Advertising,
                     <span class="gradient-text">Amplify Results</span>
-                </h2>
+                </h1>
 
                 <p class="description fade-in-up" style="animation-delay: 0.4s">
                     Script, design, and optimize ad campaigns across Google Ads, Meta, and more. From performance dashboards to automated workflows—all in one platform.
                 </p>
 
-                <a href="https://wa.me/971561927597?text=Hi%2C%20I%27m%20interested%20in%20your%20advertising%20services" target="_blank" rel="noopener noreferrer nofollow" class="cta-button fade-in-up" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <a href="https://wa.me/971561927597?text=Hi%2C%20I%27m%20interested%20in%20your%20advertising%20services" target="_blank" class="cta-button fade-in-up" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
                     Get Started
                     <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -146,13 +153,13 @@
                     <div class="card-glow"></div>
 
                     <div class="card-content">
-                        <span class="card-label">FEATURED</span>
-                        <h3 class="card-title">Ad Platform Focus</h3>
+                        <span class="card-label" data-i18n="ads.featured">FEATURED</span>
+                        <h3 class="card-title" data-i18n="ads.platform">Ad Platform Focus</h3>
 
                         <ul class="feature-list">
-                            <li><span class="bullet">•</span>Search & Performance Max campaigns</li>
-                            <li><span class="bullet">•</span>Lead Ads, WhatsApp Automation & Audiences</li>
-                            <li><span class="bullet">•</span>Server-side events & real-time analytics</li>
+                            <li data-i18n="ads.featureList1"><span class="bullet">•</span>Search & Performance Max campaigns</li>
+                            <li data-i18n="ads.featureList2"><span class="bullet">•</span>Lead Ads, WhatsApp Automation & Audiences</li>
+                            <li data-i18n="ads.featureList3"><span class="bullet">•</span>Server-side events & real-time analytics</li>
                         </ul>
 
                         <div class="logo-badges">
@@ -170,17 +177,17 @@
 
                     <div class="card-content">
                         <div class="stat-number">3x</div>
-                        <p class="stat-label">Average Performance Increase</p>
+                        <p class="stat-label" data-i18n="ads.statLabel">Average Performance Increase</p>
 
                         <div class="stats-bars">
                             <div class="stat-bar">
-                                <span class="stat-name">ROI Boost</span>
+                                <span class="stat-name" data-i18n="ads.statRoi">ROI Boost</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 85%; animation-delay: 1s"></div>
                                 </div>
                             </div>
                             <div class="stat-bar">
-                                <span class="stat-name">Automation Rate</span>
+                                <span class="stat-name" data-i18n="ads.statAutomation">Automation Rate</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 92%; animation-delay: 1.2s"></div>
                                 </div>
@@ -204,7 +211,7 @@
                                 <line x1="6" y1="20" x2="6" y2="14"></line>
                             </svg>
                         </div>
-                        <h3 class="card-title">Performance Analytics</h3>
+                        <h3 class="card-title" data-i18n="ads.card1">Performance Analytics</h3>
                     </div>
                     <div class="card-arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -224,7 +231,7 @@
                                 <path d="M12 6v6l4 2"></path>
                             </svg>
                         </div>
-                        <h3 class="card-title">SEO Optimization</h3>
+                        <h3 class="card-title" data-i18n="ads.card2">SEO Optimization</h3>
                     </div>
                     <div class="card-arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -243,7 +250,7 @@
                                 <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                         </div>
-                        <h3 class="card-title">Real-time Insights</h3>
+                        <h3 class="card-title" data-i18n="ads.card3">Real-time Insights</h3>
                     </div>
                     <div class="card-arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -263,7 +270,7 @@
                                 <line x1="12" y1="18" x2="12" y2="18.01"></line>
                             </svg>
                         </div>
-                        <h3 class="card-title">Mobile First</h3>
+                        <h3 class="card-title" data-i18n="ads.card4">Mobile First</h3>
                     </div>
                     <div class="card-arrow">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -274,12 +281,12 @@
                 </div>
             </div>
 
-            <div class="cta-section fade-in-up" style="animation-delay: 1.1s">
-                <div class="cta-background"></div>
-                <h3>Ready to Transform Your Advertising?</h3>
-                <p>Join thousands of marketers using our platform to automate, optimize, and scale their ad campaigns.</p>
-                <a href="https://wa.me/971561927597?text=Hi%2C%20I%27d%20like%20to%20start%20a%20free%20trial" target="_blank" rel="noopener noreferrer nofollow" class="cta-button" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    Start Free Trial
+                <div class="cta-section fade-in-up" style="animation-delay: 1.1s">
+                    <div class="cta-background"></div>
+                    <h2 data-i18n="ads.ctaTitle">Ready to Transform Your Advertising?</h2>
+                    <p data-i18n="ads.ctaSubtitle">Join thousands of marketers using our platform to automate, optimize, and scale their ad campaigns.</p>
+                    <a href="https://wa.me/971561927597?text=Hi%2C%20I%27d%20like%20to%20start%20a%20free%20trial" target="_blank" class="cta-button" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span data-i18n="ads.ctaButton">Start Free Trial</span>
                     <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -292,9 +299,9 @@
     <section class="results-section" id="results">
         <div class="results-container">
             <div class="section-header fade-in">
-                <p class="section-badge">RESULTS</p>
-                <h3 class="section-title">Measurable Growth & Performance</h3>
-                <p class="section-description">Real data from real campaigns. These numbers reflect the impact of strategic ad management and continuous optimization.</p>
+                <h2 class="section-badge" data-i18n="results.badge">RESULTS</h2>
+                <h1 class="section-title" data-i18n="results.title">Measurable Growth & Performance</h1>
+                <p class="section-description" data-i18n="results.description">Real data from real campaigns. These numbers reflect the impact of strategic ad management and continuous optimization.</p>
             </div>
 
             <div class="results-grid">
@@ -305,8 +312,8 @@
                         </svg>
                     </div>
                     <div class="result-value count-number" data-target="340" data-format="number" data-suffix="%">340%</div>
-                    <div class="result-label">ROAS Achieved</div>
-                    <div class="result-desc">Average return on ad spend across all campaigns</div>
+                    <div class="result-label" data-i18n="results.card1.label">ROAS Achieved</div>
+                    <div class="result-desc" data-i18n="results.card1.desc">Average return on ad spend across all campaigns</div>
                 </div>
 
                 <div class="result-card fade-in-up" style="animation-delay: 0.2s">
@@ -316,8 +323,8 @@
                         </svg>
                     </div>
                     <div class="result-value count-number" data-target="212" data-format="number" data-prefix="+" data-suffix="%">+212%</div>
-                    <div class="result-label">Conversion Increase</div>
-                    <div class="result-desc">Growth in qualified leads and sales</div>
+                    <div class="result-label" data-i18n="results.card2.label">Conversion Increase</div>
+                    <div class="result-desc" data-i18n="results.card2.desc">Growth in qualified leads and sales</div>
                 </div>
 
                 <div class="result-card fade-in-up" style="animation-delay: 0.3s">
@@ -328,8 +335,8 @@
                         </svg>
                     </div>
                     <div class="result-value count-number" data-target="0.3" data-format="decimal" data-suffix="s">0.3s</div>
-                    <div class="result-label">Page Load Speed</div>
-                    <div class="result-desc">Lightning-fast websites for better UX</div>
+                    <div class="result-label" data-i18n="results.card3.label">Page Load Speed</div>
+                    <div class="result-desc" data-i18n="results.card3.desc">Lightning-fast websites for better UX</div>
                 </div>
 
                 <div class="result-card fade-in-up" style="animation-delay: 0.4s">
@@ -341,8 +348,8 @@
                         </svg>
                     </div>
                     <div class="result-value count-number" data-target="18" data-format="number" data-prefix="+" data-suffix="%">+18%</div>
-                    <div class="result-label">Conversion Rate Lift</div>
-                    <div class="result-desc">After A/B testing and optimization</div>
+                    <div class="result-label" data-i18n="results.card4.label">Conversion Rate Lift</div>
+                    <div class="result-desc" data-i18n="results.card4.desc">After A/B testing and optimization</div>
                 </div>
             </div>
         </div>
@@ -352,8 +359,8 @@
     <section class="process-section" id="process">
         <div class="process-container">
             <div class="process-header">
-                <h3 class="section-title fade-in">How projects move from audit to scale</h3>
-                <p class="section-description fade-in">An agile rhythm keeps launch velocity high and results transparent. Every sprint ends with a review, insights deck and backlog reprioritisation.</p>
+                <h1 class="section-title fade-in" data-i18n="process.title">How projects move from audit to scale</h1>
+                <p class="section-description fade-in" data-i18n="process.description">An agile rhythm keeps launch velocity high and results transparent. Every sprint ends with a review, insights deck and backlog reprioritisation.</p>
             </div>
 
             <div class="process-content">
@@ -362,32 +369,32 @@
                     <div class="step fade-in-up">
                         <div class="step-number">01</div>
                         <div class="step-content">
-                            <h3>Deep-dive audit</h3>
-                            <p>GA4, CRM, ads, tech SEO review. Prioritised roadmap delivered within 5 days.</p>
+                            <h3 data-i18n="process.steps.1.title">Deep-dive audit</h3>
+                            <p data-i18n="process.steps.1.text">GA4, CRM, ads, tech SEO review. Prioritised roadmap delivered within 5 days.</p>
                         </div>
                     </div>
 
                     <div class="step fade-in-up">
                         <div class="step-number">02</div>
                         <div class="step-content">
-                            <h3>Launch sprint</h3>
-                            <p>Landing/s built with QA checklist, copy testing, tracking validation.</p>
+                            <h3 data-i18n="process.steps.2.title">Launch sprint</h3>
+                            <p data-i18n="process.steps.2.text">Landing/s built with QA checklist, copy testing, tracking validation.</p>
                         </div>
                     </div>
 
                     <div class="step fade-in-up">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <h3>Campaign builds</h3>
-                            <p>Search, video, local, retargeting flows in Meta and Google Ads.</p>
+                            <h3 data-i18n="process.steps.3.title">Campaign builds</h3>
+                            <p data-i18n="process.steps.3.text">Search, video, local, retargeting flows in Meta and Google Ads.</p>
                         </div>
                     </div>
 
                     <div class="step fade-in-up">
                         <div class="step-number">04</div>
                         <div class="step-content">
-                            <h3>Scale + optimization</h3>
-                            <p>Weekly reviews, creative briefs, ad-spend pacing, and CRO experiments.</p>
+                            <h3 data-i18n="process.steps.4.title">Scale + optimization</h3>
+                            <p data-i18n="process.steps.4.text">Weekly reviews, creative briefs, ad-spend pacing, and CRO experiments.</p>
                         </div>
                     </div>
                 </div>
@@ -395,24 +402,24 @@
                 <!-- Info Cards Column -->
                 <div class="info-cards-column">
                     <div class="info-card fade-in-up">
-                        <h3 class="info-card-title">Channels I work with</h3>
+                        <h3 class="info-card-title" data-i18n="process.channels.title">Channels I work with</h3>
                         <ul class="info-card-list">
-                            <li>Meta Ads (Facebook, Instagram)</li>
-                            <li>Google Ads (Search, P-Max, Display, YouTube)</li>
-                            <li>Landing pages & conversion funnels</li>
-                            <li>GA4 custom reports & Looker Studio</li>
-                            <li>WhatsApp Business API, call tracking</li>
+                            <li data-i18n="process.channels.item1">Meta Ads (Facebook, Instagram)</li>
+                            <li data-i18n="process.channels.item2">Google Ads (Search, P-Max, Display, YouTube)</li>
+                            <li data-i18n="process.channels.item3">Landing pages & conversion funnels</li>
+                            <li data-i18n="process.channels.item4">GA4 custom reports & Looker Studio</li>
+                            <li data-i18n="process.channels.item5">WhatsApp Business API, call tracking</li>
                         </ul>
                     </div>
 
                     <div class="info-card fade-in-up">
-                        <h3 class="info-card-title">Industries with proven ROI</h3>
+                        <h3 class="info-card-title" data-i18n="process.industries.title">Industries with proven ROI</h3>
                         <ul class="info-card-list">
-                            <li>Real estate & property development</li>
-                            <li>E-commerce & direct-to-consumer</li>
-                            <li>B2B SaaS & lead generation</li>
-                            <li>Medical & wellness clinics</li>
-                            <li>Education & coaching programs</li>
+                            <li data-i18n="process.industries.item1">Real estate & property development</li>
+                            <li data-i18n="process.industries.item2">E-commerce & direct-to-consumer</li>
+                            <li data-i18n="process.industries.item3">B2B SaaS & lead generation</li>
+                            <li data-i18n="process.industries.item4">Medical & wellness clinics</li>
+                            <li data-i18n="process.industries.item5">Education & coaching programs</li>
                         </ul>
                     </div>
                 </div>
@@ -424,9 +431,9 @@
     <section class="insights-section" id="insights">
         <div class="insights-container">
             <div class="section-header fade-in">
-                <p class="section-badge">INSIGHTS</p>
-                <h3 class="section-title">Deep Understanding of Your Business</h3>
-                <p class="section-description">Data-driven insights that inform every decision. From audience behavior to campaign performance, we uncover what truly matters.</p>
+                <h2 class="section-badge" data-i18n="insights.badge">INSIGHTS</h2>
+                <h1 class="section-title" data-i18n="insights.title">Deep Understanding of Your Business</h1>
+                <p class="section-description" data-i18n="insights.description">Data-driven insights that inform every decision. From audience behavior to campaign performance, we uncover what truly matters.</p>
             </div>
 
             <div class="insights-grid">
@@ -439,17 +446,17 @@
                                 <line x1="12" y1="22.08" x2="12" y2="12"/>
                             </svg>
                         </div>
-                        <h3>Behavioral Analytics</h3>
+                        <h3 data-i18n="insights.card1.title">Behavioral Analytics</h3>
                     </div>
-                    <p>Track every user interaction with heatmaps, session recordings, and scroll depth analysis. Understand what engages visitors and what causes drop-offs.</p>
+                    <p data-i18n="insights.card1.text">Track every user interaction with heatmaps, session recordings, and scroll depth analysis. Understand what engages visitors and what causes drop-offs.</p>
                     <div class="insight-stats">
                         <div class="stat-item">
                             <span class="stat-value">94%</span>
-                            <span class="stat-label">Tracking Accuracy</span>
+                            <span class="stat-label" data-i18n="insights.card1.stat1">Tracking Accuracy</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-value">Real-time</span>
-                            <span class="stat-label">Data Updates</span>
+                            <span class="stat-label" data-i18n="insights.card1.stat2">Data Updates</span>
                         </div>
                     </div>
                 </div>
@@ -462,9 +469,9 @@
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                             </svg>
                         </div>
-                        <h3>Budget Optimization</h3>
+                        <h3 data-i18n="insights.card2.title">Budget Optimization</h3>
                     </div>
-                    <p>AI-powered spend allocation across channels. Maximize ROI by directing budget to top-performing campaigns automatically.</p>
+                    <p data-i18n="insights.card2.text">AI-powered spend allocation across channels. Maximize ROI by directing budget to top-performing campaigns automatically.</p>
                 </div>
 
                 <div class="insight-card fade-in-up" style="animation-delay: 0.3s">
@@ -477,9 +484,9 @@
                                 <line x1="23" y1="11" x2="17" y2="11"/>
                             </svg>
                         </div>
-                        <h3>Audience Intelligence</h3>
+                        <h3 data-i18n="insights.card3.title">Audience Intelligence</h3>
                     </div>
-                    <p>Deep demographic and psychographic profiling. Identify high-value segments and create laser-focused targeting strategies.</p>
+                    <p data-i18n="insights.card3.text">Deep demographic and psychographic profiling. Identify high-value segments and create laser-focused targeting strategies.</p>
                 </div>
 
                 <div class="insight-card fade-in-up" style="animation-delay: 0.4s">
@@ -489,9 +496,9 @@
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                             </svg>
                         </div>
-                        <h3>Performance Forecasting</h3>
+                        <h3 data-i18n="insights.card4.title">Performance Forecasting</h3>
                     </div>
-                    <p>Predictive models that estimate campaign outcomes. Plan with confidence using historical data and trend analysis.</p>
+                    <p data-i18n="insights.card4.text">Predictive models that estimate campaign outcomes. Plan with confidence using historical data and trend analysis.</p>
                 </div>
 
                 <div class="insight-card fade-in-up" style="animation-delay: 0.5s">
@@ -503,9 +510,9 @@
                                 <line x1="9" y1="21" x2="9" y2="9"/>
                             </svg>
                         </div>
-                        <h3>Competitor Analysis</h3>
+                        <h3 data-i18n="insights.card5.title">Competitor Analysis</h3>
                     </div>
-                    <p>Monitor rival ad strategies, creative approaches, and market positioning. Stay ahead with competitive intelligence.</p>
+                    <p data-i18n="insights.card5.text">Monitor rival ad strategies, creative approaches, and market positioning. Stay ahead with competitive intelligence.</p>
                 </div>
             </div>
         </div>
@@ -515,30 +522,30 @@
     <section class="about-section" id="about">
         <div class="about-container fade-in-up">
             <div class="about-header">
-                <h3 class="about-title">About</h3>
-                <p class="about-intro">Hands-on marketer and builder strategy — execution → measurable growth.</p>
+                <h2 class="about-title" data-i18n="about.title">About</h2>
+                <p class="about-intro" data-i18n="about.intro">Hands-on marketer and builder strategy — execution → measurable growth.</p>
             </div>
 
             <div class="about-grid">
                 <div class="about-card fade-in-up">
-                    <h4>Web performance first</h4>
-                    <p>Talented, clean HTML/JS, schema, lazy images.</p>
+                    <h4 data-i18n="about.card1.title">Web performance first</h4>
+                    <p data-i18n="about.card1.text">Talented, clean HTML/JS, schema, lazy images.</p>
                 </div>
 
                 <div class="about-card fade-in-up">
-                    <h4>Reliable tracking</h4>
-                    <p>GA4 events, GTM, WhatsApp & call tracking.</p>
+                    <h4 data-i18n="about.card2.title">Reliable tracking</h4>
+                    <p data-i18n="about.card2.text">GA4 events, GTM, WhatsApp & call tracking.</p>
                 </div>
 
                 <div class="about-card fade-in-up">
-                    <h4>Content that sells</h4>
-                    <p>Photo/video for ads & websites</p>
+                    <h4 data-i18n="about.card3.title">Content that sells</h4>
+                    <p data-i18n="about.card3.text">Photo/video for ads & websites</p>
                 </div>
 
                 <div class="about-card fade-in-up">
-                    <h4>Iterate fast</h4>
-                    <p>From idea to fresh CRO — sprints, dashboards.</p>
-                </div>
+                    <h4 data-i18n="about.card4.title">Iterate fast</h4>
+                    <p data-i18n="about.card4.text">From idea to fresh CRO — sprints, dashboards.</p>
+            </div>
             </div>
         </div>
     </section>
@@ -546,7 +553,7 @@
     <!-- ============ WHAT I DO SECTION ============ -->
     <section class="what-i-do-section">
         <div class="what-i-do-container">
-            <h3 class="section-title fade-in">What I do — performance marketing, analytics & fast web builds</h3>
+            <h1 class="section-title fade-in" data-i18n="services.title">What I do — performance marketing, analytics & fast web builds</h1>
 
             <!-- Services Grid -->
             <div class="services-grid">
@@ -555,60 +562,60 @@
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">📱</div>
-                        <h3>Meta Ads (IG/FB)</h3>
+                        <h3 data-i18n="services.meta.title">Meta Ads (IG/FB)</h3>
                     </div>
                     <img src="img/metaads.webp" class="card-image" alt="Meta Ads">
-                    <p class="card-description">WhatsApp automation, lead gen, inbound calls.</p>
+                    <p class="card-description" data-i18n="services.meta.text">WhatsApp automation, lead gen, inbound calls.</p>
                 </div>
 
                 <!-- Google Ads Card -->
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">🔍</div>
-                        <h3>Google Ads</h3>
+                        <h3 data-i18n="services.google.title">Google Ads</h3>
                     </div>
                     <img src="img/googleads.jpg" class="card-image" alt="Google Ads">
-                    <p class="card-description">Search, P-Max, Maps — optimized.</p>
+                    <p class="card-description" data-i18n="services.google.text">Search, P-Max, Maps — optimized.</p>
                 </div>
 
                 <!-- YouTube Ads Card -->
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">▶️</div>
-                        <h3>YouTube Ads</h3>
+                        <h3 data-i18n="services.youtube.title">YouTube Ads</h3>
                     </div>
                     <img src="img/youtubeads.webp" class="card-image" alt="YouTube Ads">
-                    <p class="card-description">Video funnels, bumper creatives, precise audiences.</p>
+                    <p class="card-description" data-i18n="services.youtube.text">Video funnels, bumper creatives, precise audiences.</p>
                 </div>
 
                 <!-- Websites Card -->
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">💻</div>
-                        <h3>Websites & Landing Pages</h3>
+                        <h3 data-i18n="services.web.title">Websites & Landing Pages</h3>
                     </div>
                     <img src="img/site.webp" class="card-image" alt="Websites">
-                    <p class="card-description">Fast, SEO-ready.</p>
+                    <p class="card-description" data-i18n="services.web.text">Fast, SEO-ready.</p>
                 </div>
 
                 <!-- SEO Card -->
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">📊</div>
-                        <h3>SEO & Local SEO</h3>
+                        <h3 data-i18n="services.seo.title">SEO & Local SEO</h3>
                     </div>
                     <img src="img/localseo.webp" class="card-image" alt="Local SEO">
-                    <p class="card-description">Audits, schema, speed, content plan.</p>
+                    <p class="card-description" data-i18n="services.seo.text">Audits, schema, speed, content plan.</p>
                 </div>
 
                 <!-- Photo/Content Card -->
                 <div class="service-card fade-in-up">
                     <div class="card-header">
                         <div class="icon-badge">📸</div>
-                        <h3>Photo/Content</h3>
+                        <h3 data-i18n="services.photo.title">Photo/Content</h3>
                     </div>
                     <img src="img/photocontent.webp" class="card-image" alt="Photo Content">
-                    <p class="card-description">Lifestyle, interiors, product shoots.</p>
+                    <p class="card-description" data-i18n="services.photo.text">Lifestyle, interiors, product shoots.</p>
                 </div>
             </div>
         </div>
@@ -618,8 +625,8 @@
     <section class="portfolio" id="portfolio">
         <div class="process-container">
             <div class="section-header">
-                <h3 class="section-title fade-in">Recent Projects</h3>
-                <p class="section-description fade-in">A selection of campaigns and websites built for growth.</p>
+                <h2 class="section-title fade-in" data-i18n="portfolio.title">Recent Projects</h2>
+                <p class="section-description fade-in" data-i18n="portfolio.subtitle">A selection of campaigns and websites built for growth.</p>
             </div>
 
             <div class="slider-wrapper">
@@ -629,12 +636,12 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-realestate"></div>
                             <div class="portfolio-card-content">
-                                <h3>Real Estate Landing Page</h3>
-                                <p>High-converting landing page with WhatsApp integration and Google Ads campaign.</p>
+                                <h3 data-i18n="portfolio.card1.title">Real Estate Landing Page</h3>
+                                <p data-i18n="portfolio.card1.text">High-converting landing page with WhatsApp integration and Google Ads campaign.</p>
                                 <div class="tags">
-                                    <span>Landing Page</span>
-                                    <span>Google Ads</span>
-                                    <span>WhatsApp</span>
+                                    <span data-i18n="portfolio.card1.tag1">Landing Page</span>
+                                    <span data-i18n="portfolio.card1.tag2">Google Ads</span>
+                                    <span data-i18n="portfolio.card1.tag3">WhatsApp</span>
                                 </div>
                             </div>
                         </div>
@@ -643,13 +650,13 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-bella"></div>
                             <div class="portfolio-card-content">
-                                <h3>Bella Spa Dubai</h3>
-                                <p>Premium wellness branding for Al Barsha Heights location. Meta & Google Ads campaigns.</p>
+                                <h3 data-i18n="portfolio.card2.title">Bella Spa Dubai</h3>
+                                <p data-i18n="portfolio.card2.text">Premium wellness branding for Al Barsha Heights location. Meta & Google Ads campaigns.</p>
                                 <div class="tags">
-                                    <span>Google Ads</span>
-                                    <span>Meta Ads</span>
-                                    <span>Branding</span>
-                                    <span>SEO</span>
+                                    <span data-i18n="portfolio.card2.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card2.tag2">Meta Ads</span>
+                                    <span data-i18n="portfolio.card2.tag3">Branding</span>
+                                    <span data-i18n="portfolio.card2.tag4">SEO</span>
                                 </div>
                             </div>
                         </div>
@@ -657,13 +664,13 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-jasmin"></div>
                             <div class="portfolio-card-content">
-                                <h3>Jasmin Spa Dubai</h3>
-                                <p>Al Barsha Heights spa website with booking system and WhatsApp integration.</p>
+                                <h3 data-i18n="portfolio.card3.title">Jasmin Spa Dubai</h3>
+                                <p data-i18n="portfolio.card3.text">Al Barsha Heights spa website with booking system and WhatsApp integration.</p>
                                 <div class="tags">
-                                  <span>Google Ads</span>
-                                    <span>Meta Ads</span>
-                                    <span>Branding</span>
-                                    <span>SEO</span>
+                                    <span data-i18n="portfolio.card3.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card3.tag2">Meta Ads</span>
+                                    <span data-i18n="portfolio.card3.tag3">Branding</span>
+                                    <span data-i18n="portfolio.card3.tag4">SEO</span>
                                 </div>
                             </div>
                         </div>
@@ -671,12 +678,12 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-touch"></div>
                             <div class="portfolio-card-content">
-                                <h3>Touch Life Spa Dubai</h3>
-                                <p>Al Barsha Heights luxury spa. Lead generation and customer retention campaigns.</p>
+                                <h3 data-i18n="portfolio.card4.title">Touch Life Spa Dubai</h3>
+                                <p data-i18n="portfolio.card4.text">Al Barsha Heights luxury spa. Lead generation and customer retention campaigns.</p>
                                 <div class="tags">
-                                    <span>Google Ads</span>
-                                    <span>WebSite</span>
-                                    <span>SEO</span>
+                                    <span data-i18n="portfolio.card4.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card4.tag2">WebSite</span>
+                                    <span data-i18n="portfolio.card4.tag3">SEO</span>
                                 </div>
                             </div>
                         </div>
@@ -684,12 +691,12 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-mirage"></div>
                             <div class="portfolio-card-content">
-                                <h3>Mirage Spa Dubai</h3>
-                                <p>Jumeirah location. Full-service marketing with social media and email campaigns.</p>
+                                <h3 data-i18n="portfolio.card5.title">Mirage Spa Dubai</h3>
+                                <p data-i18n="portfolio.card5.text">Jumeirah location. Full-service marketing with social media and email campaigns.</p>
                                 <div class="tags">
-                                    <span>Google Ads</span>
-                                    <span>Branding</span>
-                                    <span>SEO</span>
+                                    <span data-i18n="portfolio.card5.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card5.tag2">Branding</span>
+                                    <span data-i18n="portfolio.card5.tag3">SEO</span>
                                 </div>
                             </div>
                         </div>
@@ -697,12 +704,12 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-inn"></div>
                             <div class="portfolio-card-content">
-                                <h3>Inn Spa Dubai</h3>
-                                <p>Al Barsha South location. Performance marketing with WhatsApp automation.</p>
+                                <h3 data-i18n="portfolio.card6.title">Inn Spa Dubai</h3>
+                                <p data-i18n="portfolio.card6.text">Al Barsha South location. Performance marketing with WhatsApp automation.</p>
                                 <div class="tags">
-                                  <span>Google Ads</span>
-                                    <span>Branding</span>
-                                    <span>SEO</span>
+                                    <span data-i18n="portfolio.card6.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card6.tag2">Branding</span>
+                                    <span data-i18n="portfolio.card6.tag3">SEO</span>
                                 </div>
                             </div>
                         </div>
@@ -710,14 +717,14 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-velvet"></div>
                             <div class="portfolio-card-content">
-                                <h3>Velvet Touch Spa Dubai</h3>
-                                <p>JBR location. SEO optimization and local search dominance strategy.</p>
+                                <h3 data-i18n="portfolio.card7.title">Velvet Touch Spa Dubai</h3>
+                                <p data-i18n="portfolio.card7.text">JBR location. SEO optimization and local search dominance strategy.</p>
                                 <div class="tags">
-                                    <span>Google Ads</span>
-                                    <span>Meta Ads</span>
-                                    <span>Website</span>
-                                    <span>SEO</span>
-                                    <span>Spa Photos</span>
+                                    <span data-i18n="portfolio.card7.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card7.tag2">Meta Ads</span>
+                                    <span data-i18n="portfolio.card7.tag3">Website</span>
+                                    <span data-i18n="portfolio.card7.tag4">SEO</span>
+                                    <span data-i18n="portfolio.card7.tag5">Spa Photos</span>
                                 </div>
                             </div>
                         </div>
@@ -725,13 +732,13 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-castle"></div>
                             <div class="portfolio-card-content">
-                                <h3>Castle European Spa Dubai</h3>
-                                <p>Deira location. Premium positioning with luxury brand messaging campaigns.</p>
+                                <h3 data-i18n="portfolio.card8.title">Castle European Spa Dubai</h3>
+                                <p data-i18n="portfolio.card8.text">Deira location. Premium positioning with luxury brand messaging campaigns.</p>
                                 <div class="tags">
-                                    <span>Google Ads</span>
-                                    <span>Website</span>
-                                    <span>SEO</span>
-                                    <span>Spa Photos</span>
+                                    <span data-i18n="portfolio.card8.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card8.tag2">Website</span>
+                                    <span data-i18n="portfolio.card8.tag3">SEO</span>
+                                    <span data-i18n="portfolio.card8.tag4">Spa Photos</span>
                                 </div>
                             </div>
                         </div>
@@ -739,14 +746,14 @@
                         <div class="portfolio-card">
                             <div class="portfolio-card-image portfolio-img-shiestar"></div>
                             <div class="portfolio-card-content">
-                                <h3>Shiestar Spa Dubai</h3>
-                                <p>Bur Dubai location. Complete marketing funnel from awareness to booking.</p>
+                                <h3 data-i18n="portfolio.card9.title">Shiestar Spa Dubai</h3>
+                                <p data-i18n="portfolio.card9.text">Bur Dubai location. Complete marketing funnel from awareness to booking.</p>
                                 <div class="tags">
-                                     <span>Google Ads</span>
-                                    <span>Meta Ads</span>
-                                    <span>Website</span>
-                                    <span>SEO</span>
-                                    <span>Spa Photos</span>
+                                    <span data-i18n="portfolio.card9.tag1">Google Ads</span>
+                                    <span data-i18n="portfolio.card9.tag2">Meta Ads</span>
+                                    <span data-i18n="portfolio.card9.tag3">Website</span>
+                                    <span data-i18n="portfolio.card9.tag4">SEO</span>
+                                    <span data-i18n="portfolio.card9.tag5">Spa Photos</span>
                                 </div>
                             </div>
                         </div>
@@ -762,102 +769,102 @@
         <div class="faq-container">
             <div class="faq-header fade-in-up" style="animation-delay: 0s">
                 <div class="section-badge fade-in-up" style="animation-delay: 0.1s">
-                    ❓ FREQUENTLY ASKED QUESTIONS
+                    <span data-i18n="faq.badge">❓ FREQUENTLY ASKED QUESTIONS</span>
                 </div>
-                <h3 class="faq-title fade-in-up" style="animation-delay: 0.2s">
-                    Got Questions? I've Got Answers.
-                </h3>
+                <h2 class="faq-title fade-in-up" style="animation-delay: 0.2s">
+                    <span data-i18n="faq.title">Got Questions? I've Got Answers.</span>
+                </h2>
                 <p class="faq-description fade-in-up" style="animation-delay: 0.3s">
-                    Everything you need to know about my services, pricing, process, and what to expect when working with me.
+                    <span data-i18n="faq.subtitle">Everything you need to know about my services, pricing, process, and what to expect when working with me.</span>
                 </p>
             </div>
 
             <div class="faq-grid">
                 <div class="faq-item fade-in-up" style="animation-delay: 0.4s">
                     <div class="faq-question">
-                        <h3>What's your process for new projects?</h3>
+                        <h3 data-i18n="faq.q1.title">What's your process for new projects?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>I start with a deep-dive audit of your current setup—GA4, ads, CRM, and tech stack. Within 5 days, you get a prioritized roadmap with quick wins and long-term strategy. Then we move into sprints: landing pages, campaign builds, tracking setup, and continuous optimization.</p>
+                        <p data-i18n="faq.q1.answer">I start with a deep-dive audit of your current setup—GA4, ads, CRM, and tech stack. Within 5 days, you get a prioritized roadmap with quick wins and long-term strategy. Then we move into sprints: landing pages, campaign builds, tracking setup, and continuous optimization.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 0.5s">
                     <div class="faq-question">
-                        <h3>Do you work on retainer or project basis?</h3>
+                        <h3 data-i18n="faq.q2.title">Do you work on retainer or project basis?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Both. Most clients prefer a 3-6 month retainer where we optimize campaigns weekly, run A/B tests, and scale what works. Project-based work is great for landing page builds, technical SEO audits, or ad account setup. Happy to discuss what fits your needs.</p>
+                        <p data-i18n="faq.q2.answer">Both. Most clients prefer a 3-6 month retainer where we optimize campaigns weekly, run A/B tests, and scale what works. Project-based work is great for landing page builds, technical SEO audits, or ad account setup. Happy to discuss what fits your needs.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 0.6s">
                     <div class="faq-question">
-                        <h3>What industries have you worked with?</h3>
+                        <h3 data-i18n="faq.q3.title">What industries have you worked with?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>I've worked with 30+ Dubai businesses across e-commerce, SaaS, real estate, professional services, and F&B. Each industry has different KPIs and customer journeys, so I customize my approach. Whether you're B2B or B2C, I know how to optimize for your goals.</p>
+                        <p data-i18n="faq.q3.answer">I've worked with 30+ Dubai businesses across e-commerce, SaaS, real estate, professional services, and F&B. Each industry has different KPIs and customer journeys, so I customize my approach. Whether you're B2B or B2C, I know how to optimize for your goals.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 0.7s">
                     <div class="faq-question">
-                        <h3>How long until I see results?</h3>
+                        <h3 data-i18n="faq.q4.title">How long until I see results?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Quick wins typically show in 2-4 weeks: better landing page performance, ad account optimization, tracking fixes. Meaningful scale (50%+ ROI lift) usually takes 8-12 weeks of continuous testing and refinement. Patience with data is key—we measure everything.</p>
+                        <p data-i18n="faq.q4.answer">Quick wins typically show in 2-4 weeks: better landing page performance, ad account optimization, tracking fixes. Meaningful scale (50%+ ROI lift) usually takes 8-12 weeks of continuous testing and refinement. Patience with data is key—we measure everything.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 0.8s">
                     <div class="faq-question">
-                        <h3>What about reporting and transparency?</h3>
+                        <h3 data-i18n="faq.q5.title">What about reporting and transparency?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>You get weekly or monthly dashboards (your choice) showing spend, ROAS, conversions, and test results. I provide strategic insights, not just numbers. Every sprint ends with a review call where we celebrate wins and reprioritize the backlog.</p>
+                        <p data-i18n="faq.q5.answer">You get weekly or monthly dashboards (your choice) showing spend, ROAS, conversions, and test results. I provide strategic insights, not just numbers. Every sprint ends with a review call where we celebrate wins and reprioritize the backlog.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 0.9s">
                     <div class="faq-question">
-                        <h3>Can you handle my existing ad accounts and websites?</h3>
+                        <h3 data-i18n="faq.q6.title">Can you handle my existing ad accounts and websites?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes. I work with Google Ads, Meta Ads, analytics platforms, CMS (Webflow, WordPress, Tilda), and custom code. I'll audit what you have, identify gaps, and optimize from there. No need to start fresh—I build on what already works.</p>
+                        <p data-i18n="faq.q6.answer">Yes. I work with Google Ads, Meta Ads, analytics platforms, CMS (Webflow, WordPress, Tilda), and custom code. I'll audit what you have, identify gaps, and optimize from there. No need to start fresh—I build on what already works.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 1s">
                     <div class="faq-question">
-                        <h3>What does your typical package cost?</h3>
+                        <h3 data-i18n="faq.q7.title">What does your typical package cost?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Pricing depends on scope: landing page builds start at $1,500. Full-stack ad management retainers typically run $2,000-$5,000/month based on ad spend volume and complexity. Let's chat about your budget and needs—I'll propose something that makes sense.</p>
+                        <p data-i18n="faq.q7.answer">Pricing depends on scope: landing page builds start at $1,500. Full-stack ad management retainers typically run $2,000-$5,000/month based on ad spend volume and complexity. Let's chat about your budget and needs—I'll propose something that makes sense.</p>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in-up" style="animation-delay: 1.1s">
                     <div class="faq-question">
-                        <h3>Do you offer free consultations?</h3>
+                        <h3 data-i18n="faq.q8.title">Do you offer free consultations?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. Hit me up on WhatsApp or email. We'll spend 15-20 minutes talking about your challenges, goals, and what success looks like. No sales pitch—just honest feedback on what might work for your business.</p>
+                        <p data-i18n="faq.q8.answer">Absolutely. Hit me up on WhatsApp or email. We'll spend 15-20 minutes talking about your challenges, goals, and what success looks like. No sales pitch—just honest feedback on what might work for your business.</p>
                     </div>
                 </div>
             </div>
 
             <div class="faq-cta fade-in-up" style="animation-delay: 1.2s">
-                <p>Still have questions?</p>
-                <a href="https://wa.me/971561927597?text=Hi%2C%20I%20have%20a%20question%20about%20your%20services" target="_blank" rel="noopener noreferrer nofollow" class="cta-button" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                    Message Me on WhatsApp
+                <p data-i18n="faq.cta.text">Still have questions?</p>
+                <a href="https://wa.me/971561927597?text=Hi%2C%20I%20have%20a%20question%20about%20your%20services" target="_blank" class="cta-button" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <span data-i18n="faq.cta.button">Message Me on WhatsApp</span>
                     <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -871,8 +878,8 @@
         <div class="process-container">
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>Let's Talk</h3>
-                    <p>Share your goals and budget. I'll propose a clear plan with KPIs and timeline.</p>
+                    <h2 data-i18n="contact.title">Let's Talk</h2>
+                    <p data-i18n="contact.subtitle">Share your goals and budget. I'll propose a clear plan with KPIs and timeline.</p>
                     <div class="contact-details">
                         <div class="detail-item">
                             <span class="icon">📧</span>
@@ -884,19 +891,19 @@
                         </div>
                         <div class="detail-item">
                             <span class="icon">📍</span>
-                            <span>Dubai, UAE</span>
+                            <span data-i18n="contact.location">Dubai, UAE</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form-box">
-                    <h3>Send a message</h3>
-                    <p>Fill out the form and I'll get back to you within 24 hours.</p>
+                    <h3 data-i18n="contact.formTitle">Send a message</h3>
+                    <p data-i18n="contact.formSubtitle">Fill out the form and I'll get back to you within 24 hours.</p>
                     <form class="contact-form" id="whatsappForm">
-                        <input type="text" class="form-input" name="name" placeholder="Your name" required>
-                        <input type="email" class="form-input" name="email" placeholder="Your email" required>
-                        <textarea class="form-textarea" name="message" placeholder="Your message" required></textarea>
-                        <button type="submit" class="btn-whatsapp">Send Message</button>
+                        <input type="text" class="form-input" name="name" placeholder="Your name" data-i18n="contact.namePlaceholder" required>
+                        <input type="email" class="form-input" name="email" placeholder="Your email" data-i18n="contact.emailPlaceholder" required>
+                        <textarea class="form-textarea" name="message" placeholder="Your message" data-i18n="contact.messagePlaceholder" required></textarea>
+                        <button type="submit" class="btn-whatsapp" data-i18n="contact.submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -904,7 +911,7 @@
     </section>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/971561927597" class="whatsapp-float" target="_blank" rel="noopener noreferrer nofollow" aria-label="Contact on WhatsApp">
+    <a href="https://wa.me/971561927597" class="whatsapp-float" target="_blank" aria-label="Contact on WhatsApp">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 0C7.163 0 0 7.163 0 16c0 2.828.738 5.48 2.031 7.781L0 32l8.406-2.219C10.662 31.234 13.25 32 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.516 0-4.875-.688-6.906-1.875l-.5-.281-4.781 1.25 1.281-4.656-.313-.531C3.656 21.156 2.667 18.656 2.667 16 2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.313-10c-.406-.219-2.375-1.188-2.75-1.313-.375-.125-.656-.188-.938.219-.281.375-1.094 1.313-1.344 1.594-.25.281-.5.313-.906.094-.406-.219-1.719-.625-3.281-2-1.219-1.063-2.031-2.375-2.281-2.781-.25-.406-.031-.625.188-.844.188-.188.406-.5.625-.75.219-.25.281-.406.438-.688.156-.281.094-.531-.031-.75-.125-.219-.906-2.188-1.25-3-.313-.781-.656-.656-.906-.656-.25 0-.531-.031-.813-.031-.281 0-.75.094-1.125.5-.375.406-1.406 1.344-1.406 3.281 0 1.938 1.438 3.813 1.656 4.094.219.281 2.813 4.281 6.813 6 1 .438 1.781.688 2.406.875.969.281 1.844.25 2.563.156.781-.125 2.375-.969 2.719-1.906.344-.938.344-1.719.219-1.906-.125-.188-.406-.281-.813-.5z"/>
         </svg>
