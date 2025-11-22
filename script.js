@@ -1,3 +1,22 @@
+// ================= LINK SECURITY HELPERS =================
+const requiredRelTokens = ["noopener", "noreferrer", "nofollow"]
+
+const enforceExternalLinkSecurity = () => {
+  document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+    const existing = link.getAttribute("rel")?.split(/\s+/).filter(Boolean) || []
+    const merged = Array.from(new Set([...existing, ...requiredRelTokens]))
+    link.setAttribute("rel", merged.join(" "))
+  })
+}
+
+const openSecureExternal = (url) => {
+  const features = "noopener,noreferrer"
+  const newWindow = window.open(url, "_blank", features)
+  if (newWindow) {
+    newWindow.opener = null
+  }
+}
+
 // ================= MOBILE DETECTION =================
 const isMobile = () => window.innerWidth < 768 || /iPhone|iPad|Android/i.test(navigator.userAgent)
 const isTablet = () => window.innerWidth >= 768 && window.innerWidth < 1024
@@ -457,7 +476,7 @@ if (contactForm) {
     const whatsappMessage = `Hello! My name is ${name}%0AEmail: ${email}%0A%0AMessage: ${message}`
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
-    window.open(whatsappURL, "_blank")
+    openSecureExternal(whatsappURL)
 
     // Reset form
     contactForm.reset()
@@ -468,9 +487,12 @@ if (contactForm) {
 document.querySelectorAll(".cta-button").forEach((button) => {
   if (button.textContent.includes("WhatsApp")) {
     button.addEventListener("click", () => {
-      window.open("https://wa.me/971561927597", "_blank")
+      openSecureExternal("https://wa.me/971561927597")
     })
   }
 })
+
+// Apply rel attributes to all external links that open new tabs
+enforceExternalLinkSecurity()
 
 console.log("✨ Website initialized successfully! Mobile optimizations active:", isMobile())
