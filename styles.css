@@ -2388,3 +2388,113 @@ nav a:hover::after {
     object-fit: cover;
     margin-bottom: 12px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= MOBILE PERFORMANCE OPTIMIZATIONS ================= */
+
+/* Disable blur spheres on mobile to reduce GPU load */
+@media (max-width: 767px) {
+  .blur-sphere {
+    display: none !important;
+  }
+
+  .particles {
+    display: none !important;
+  }
+
+  .canvas-container {
+    height: 250px;
+    background: rgba(10, 14, 39, 0.8);
+  }
+
+  /* Reduce animation complexity on mobile */
+  .fade-in-up,
+  .fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    animation-play-state: running !important;
+  }
+
+  /* Reduce backdrop filter blur on mobile */
+  header {
+    backdrop-filter: blur(5px);
+  }
+
+  .feature-card,
+  .about-card,
+  .service-card {
+    backdrop-filter: blur(5px);
+  }
+
+  .cta-section {
+    backdrop-filter: blur(5px);
+  }
+
+  /* Optimize hover states on mobile (no transforms) */
+  .cta-button:hover {
+    transform: none;
+  }
+
+  .feature-card:hover {
+    transform: none;
+  }
+
+  .about-card:hover {
+    transform: none;
+    scale: 1;
+  }
+
+  .card-glow {
+    display: none !important;
+  }
+
+  .card-background {
+    display: none !important;
+  }
+
+  .shine-effect {
+    display: none !important;
+  }
+
+  /* Reduce gradient complexity */
+  .hero::before {
+    animation: none;
+    opacity: 0.3;
+  }
+}
+
+/* Optimize performance on tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blur-sphere {
+    filter: blur(60px);
+  }
+
+  .particles {
+    opacity: 0.5;
+  }
+
+  .card-glow {
+    width: 100px;
+    height: 100px;
+  }
+
+  .fade-in-up,
+  .fade-in {
+    animation: fadeInUp 0.8s ease-out forwards !important;
+  }
+}

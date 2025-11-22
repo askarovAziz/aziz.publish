@@ -1,3 +1,7 @@
+// ================= MOBILE DETECTION =================
+const isMobile = () => window.innerWidth < 768 || /iPhone|iPad|Android/i.test(navigator.userAgent)
+const isTablet = () => window.innerWidth >= 768 && window.innerWidth < 1024
+
 // ================= BURGER MENU =================
 const burgerMenu = document.getElementById("burgerMenu")
 const mobileMenu = document.getElementById("mobileMenu")
@@ -25,165 +29,177 @@ if (burgerMenu && mobileMenu) {
   })
 }
 
-// ================= 3D CANVAS SETUP =================
+// ================= 3D CANVAS SETUP (Optimized for Mobile) =================
 const canvas = document.getElementById("canvas3d")
 if (canvas) {
-  const ctx = canvas.getContext("2d")
+  if (isMobile()) {
+    canvas.style.display = "none"
+    canvas.parentElement.innerHTML =
+      '<div style="height: 200px; display: flex; align-items: center; justify-content: center; color: #9be2ff; font-size: 0.9rem;">Interactive 3D Preview</div>'
+  } else {
+    const ctx = canvas.getContext("2d")
 
-  function resizeCanvas() {
-    const rect = canvas.getBoundingClientRect()
-    canvas.width = rect.width
-    canvas.height = rect.height
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-  }
-  resizeCanvas()
-  window.addEventListener("resize", resizeCanvas)
-
-  let mouseX = canvas.width / 2
-  let mouseY = canvas.height / 2
-
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX
-    mouseY = e.clientY
-  })
-
-  // ================= 3D OBJECT CLASS =================
-  class Point3D {
-    constructor(x, y, z) {
-      this.x = x
-      this.y = y
-      this.z = z
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect()
+      canvas.width = rect.width
+      canvas.height = rect.height
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
+    resizeCanvas()
+    window.addEventListener("resize", resizeCanvas)
 
-    rotate(angleX, angleY) {
-      const y = this.y * Math.cos(angleX) - this.z * Math.sin(angleX)
-      const z = this.y * Math.sin(angleX) + this.z * Math.cos(angleX)
+    let mouseX = canvas.width / 2
+    let mouseY = canvas.height / 2
 
-      const x = this.x * Math.cos(angleY) + z * Math.sin(angleY)
-      const z2 = -this.x * Math.sin(angleY) + z * Math.cos(angleY)
-
-      return new Point3D(x, y, z2)
-    }
-  }
-
-  class Cube {
-    constructor(size) {
-      this.size = size
-      this.vertices = [
-        new Point3D(-size, -size, -size),
-        new Point3D(size, -size, -size),
-        new Point3D(size, size, -size),
-        new Point3D(-size, size, -size),
-        new Point3D(-size, -size, size),
-        new Point3D(size, -size, size),
-        new Point3D(size, size, size),
-        new Point3D(-size, size, size),
-      ]
-
-      this.edges = [
-        [0, 1],
-        [1, 2],
-        [2, 3],
-        [3, 0],
-        [4, 5],
-        [5, 6],
-        [6, 7],
-        [7, 4],
-        [0, 4],
-        [1, 5],
-        [2, 6],
-        [3, 7],
-      ]
-    }
-  }
-
-  const cube = new Cube(100)
-
-  function project(point) {
-    const fov = 600
-    const viewerDistance = 400
-
-    const factor = fov / (viewerDistance + point.z)
-    return new Point3D(point.x * factor + canvas.width / 2, point.y * factor + canvas.height / 2, point.z)
-  }
-
-  let baseAngleX = 0
-  let baseAngleY = 0
-  let mouseAngleX = 0
-  let mouseAngleY = 0
-  let lastFrameTime = 0
-
-  const trailHistory = []
-  const trailLength = 22
-
-  const autoRotationSpeedX = 0.003
-  const autoRotationSpeedY = 0.002
-
-  function animate(timestamp = 0) {
-    const delta = lastFrameTime ? (timestamp - lastFrameTime) / 16.67 : 1
-    lastFrameTime = timestamp
-
-    const mouseInfluence = 0.002
-
-    mouseAngleX += ((mouseY - canvas.height / 2) * mouseInfluence - mouseAngleX) * 0.05
-    mouseAngleY += ((mouseX - canvas.width / 2) * mouseInfluence - mouseAngleY) * 0.05
-
-    baseAngleX += autoRotationSpeedX * delta
-    baseAngleY += autoRotationSpeedY * delta
-
-    const angleX = baseAngleX + mouseAngleX
-    const angleY = baseAngleY + mouseAngleY
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    const projectedVertices = cube.vertices.map((v) => v.rotate(angleX, angleY)).map(project)
-
-    const hue = (Math.atan2(angleY, angleX) * 180) / Math.PI
-
-    trailHistory.unshift({
-      vertices: projectedVertices.map((v) => ({ ...v })),
-      hue,
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX
+      mouseY = e.clientY
     })
 
-    if (trailHistory.length > trailLength) trailHistory.pop()
+    // ================= 3D OBJECT CLASS =================
+    class Point3D {
+      constructor(x, y, z) {
+        this.x = x
+        this.y = y
+        this.z = z
+      }
 
-    for (let i = trailHistory.length - 1; i >= 0; i--) {
-      const { vertices, hue: frameHue } = trailHistory[i]
-      const fade = 1 - i / trailLength
-      const opacity = 0.1 + fade * 0.25
-      const blurIntensity = 10 * fade
+      rotate(angleX, angleY) {
+        const y = this.y * Math.cos(angleX) - this.z * Math.sin(angleX)
+        const z = this.y * Math.sin(angleX) + this.z * Math.cos(angleX)
 
-      cube.edges.forEach((edge) => {
-        const p1 = vertices[edge[0]]
-        const p2 = vertices[edge[1]]
-        const avgZ = (p1.z + p2.z) / 2
+        const x = this.x * Math.cos(angleY) + z * Math.sin(angleY)
+        const z2 = -this.x * Math.sin(angleY) + z * Math.cos(angleY)
 
-        ctx.shadowColor = `hsla(${frameHue}, 100%, 70%, ${opacity * 0.6})`
-        ctx.shadowBlur = blurIntensity
-
-        ctx.strokeStyle = `hsla(${frameHue}, 100%, ${avgZ > 0 ? 50 : 40}%, ${opacity})`
-        ctx.lineWidth = (avgZ > 0 ? 5.5 : 3.5) * (1 + fade * 0.7)
-
-        ctx.beginPath()
-        ctx.moveTo(p1.x, p1.y)
-        ctx.lineTo(p2.x, p2.y)
-        ctx.stroke()
-      })
+        return new Point3D(x, y, z2)
+      }
     }
 
-    ctx.shadowColor = "transparent"
-    requestAnimationFrame(animate)
-  }
+    class Cube {
+      constructor(size) {
+        this.size = size
+        this.vertices = [
+          new Point3D(-size, -size, -size),
+          new Point3D(size, -size, -size),
+          new Point3D(size, size, -size),
+          new Point3D(-size, size, -size),
+          new Point3D(-size, -size, size),
+          new Point3D(size, -size, size),
+          new Point3D(size, size, size),
+          new Point3D(-size, size, size),
+        ]
 
-  animate()
+        this.edges = [
+          [0, 1],
+          [1, 2],
+          [2, 3],
+          [3, 0],
+          [4, 5],
+          [5, 6],
+          [6, 7],
+          [7, 4],
+          [0, 4],
+          [1, 5],
+          [2, 6],
+          [3, 7],
+        ]
+      }
+    }
+
+    const cube = new Cube(100)
+
+    function project(point) {
+      const fov = 600
+      const viewerDistance = 400
+
+      const factor = fov / (viewerDistance + point.z)
+      return new Point3D(point.x * factor + canvas.width / 2, point.y * factor + canvas.height / 2, point.z)
+    }
+
+    let baseAngleX = 0
+    let baseAngleY = 0
+    let mouseAngleX = 0
+    let mouseAngleY = 0
+    let lastFrameTime = 0
+
+    const trailHistory = []
+    const trailLength = 22
+
+    const autoRotationSpeedX = 0.003
+    const autoRotationSpeedY = 0.002
+
+    function animate(timestamp = 0) {
+      const delta = lastFrameTime ? (timestamp - lastFrameTime) / 16.67 : 1
+      lastFrameTime = timestamp
+
+      const mouseInfluence = 0.002
+
+      mouseAngleX += ((mouseY - canvas.height / 2) * mouseInfluence - mouseAngleX) * 0.05
+      mouseAngleY += ((mouseX - canvas.width / 2) * mouseInfluence - mouseAngleY) * 0.05
+
+      baseAngleX += autoRotationSpeedX * delta
+      baseAngleY += autoRotationSpeedY * delta
+
+      const angleX = baseAngleX + mouseAngleX
+      const angleY = baseAngleY + mouseAngleY
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      const projectedVertices = cube.vertices.map((v) => v.rotate(angleX, angleY)).map(project)
+
+      const hue = (Math.atan2(angleY, angleX) * 180) / Math.PI
+
+      trailHistory.unshift({
+        vertices: projectedVertices.map((v) => ({ ...v })),
+        hue,
+      })
+
+      if (trailHistory.length > trailLength) trailHistory.pop()
+
+      for (let i = trailHistory.length - 1; i >= 0; i--) {
+        const { vertices, hue: frameHue } = trailHistory[i]
+        const fade = 1 - i / trailLength
+        const opacity = 0.1 + fade * 0.25
+        const blurIntensity = 10 * fade
+
+        cube.edges.forEach((edge) => {
+          const p1 = vertices[edge[0]]
+          const p2 = vertices[edge[1]]
+          const avgZ = (p1.z + p2.z) / 2
+
+          ctx.shadowColor = `hsla(${frameHue}, 100%, 70%, ${opacity * 0.6})`
+          ctx.shadowBlur = blurIntensity
+
+          ctx.strokeStyle = `hsla(${frameHue}, 100%, ${avgZ > 0 ? 50 : 40}%, ${opacity})`
+          ctx.lineWidth = (avgZ > 0 ? 5.5 : 3.5) * (1 + fade * 0.7)
+
+          ctx.beginPath()
+          ctx.moveTo(p1.x, p1.y)
+          ctx.lineTo(p2.x, p2.y)
+          ctx.stroke()
+        })
+      }
+
+      ctx.shadowColor = "transparent"
+      requestAnimationFrame(animate)
+    }
+
+    animate()
+  }
 }
 
-// ================= PARTICLES =================
+// ================= PARTICLES (Optimized for Mobile) =================
 function createParticles() {
   const container = document.getElementById("particles")
   if (!container) return
 
-  const particleCount = 80
+  let particleCount = 80
+  if (isMobile()) {
+    particleCount = 0 // Completely disable on mobile
+    container.style.display = "none"
+  } else if (isTablet()) {
+    particleCount = 40 // Reduce on tablets
+  }
 
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement("div")
@@ -227,10 +243,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   })
 })
 
-// ================= FADE-IN OBSERVER =================
+// ================= FADE-IN OBSERVER (Optimized) =================
 const fadeObserverOptions = {
-  threshold: 0.15,
-  rootMargin: "0px 0px -50px 0px",
+  threshold: isMobile() ? 0.05 : 0.15,
+  rootMargin: isMobile() ? "0px" : "0px 0px -50px 0px",
 }
 
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -273,8 +289,8 @@ document.querySelectorAll(".stats-card").forEach((card) => {
 
 // ================= COUNT EFFECT ANIMATION =================
 const countObserverOptions = {
-  threshold: 0.15,
-  rootMargin: "0px 0px -50px 0px",
+  threshold: isMobile() ? 0.05 : 0.15,
+  rootMargin: isMobile() ? "0px" : "0px 0px -50px 0px",
 }
 
 const countObserver = new IntersectionObserver((entries) => {
@@ -286,7 +302,7 @@ const countObserver = new IntersectionObserver((entries) => {
         const format = el.dataset.format || "number"
         const prefix = el.dataset.prefix || ""
         const suffix = el.dataset.suffix || ""
-        const duration = 2000 // 2 seconds animation
+        const duration = isMobile() ? 1000 : 2000
 
         animateCount(el, target, format, prefix, suffix, duration)
       })
@@ -388,4 +404,4 @@ document.querySelectorAll(".cta-button").forEach((button) => {
   }
 })
 
-console.log("✨ Website initialized successfully!")
+console.log("✨ Website initialized successfully! Mobile optimizations active:", isMobile())
