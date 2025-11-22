@@ -2391,110 +2391,232 @@ nav a:hover::after {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ================= MOBILE PERFORMANCE OPTIMIZATIONS ================= */
 
-/* Disable blur spheres on mobile to reduce GPU load */
+/* Add prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Disable heavy blur-sphere animations on mobile and reduce size */
 @media (max-width: 767px) {
   .blur-sphere {
-    display: none !important;
-  }
-
-  .particles {
-    display: none !important;
-  }
-
-  .canvas-container {
-    height: 250px;
-    background: rgba(10, 14, 39, 0.8);
-  }
-
-  /* Reduce animation complexity on mobile */
-  .fade-in-up,
-  .fade-in {
+    filter: blur(150px) !important;
     animation: none !important;
-    opacity: 1 !important;
-    animation-play-state: running !important;
+    opacity: 0.15 !important;
   }
 
-  /* Reduce backdrop filter blur on mobile */
-  header {
-    backdrop-filter: blur(5px);
+  .sphere-1 {
+    width: 300px;
+    height: 300px;
+    box-shadow: none !important;
   }
 
-  .feature-card,
-  .about-card,
-  .service-card {
-    backdrop-filter: blur(5px);
+  .sphere-2 {
+    width: 250px;
+    height: 250px;
+    box-shadow: none !important;
   }
 
-  .cta-section {
-    backdrop-filter: blur(5px);
+  .sphere-3 {
+    width: 200px;
+    height: 200px;
+    box-shadow: none !important;
   }
 
-  /* Optimize hover states on mobile (no transforms) */
-  .cta-button:hover {
-    transform: none;
+  /* Reduce hero pulse animation on mobile */
+  .hero::before {
+    animation: pulse-mobile 4s ease-in-out infinite !important;
   }
 
-  .feature-card:hover {
-    transform: none;
+  @keyframes pulse-mobile {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 
-  .about-card:hover {
-    transform: none;
-    scale: 1;
-  }
-
+  /* Disable card glow effects on mobile */
   .card-glow {
     display: none !important;
   }
 
-  .card-background {
-    display: none !important;
-  }
-
+  /* Disable shine effect on mobile */
   .shine-effect {
     display: none !important;
   }
 
-  /* Reduce gradient complexity */
-  .hero::before {
-    animation: none;
-    opacity: 0.3;
+  /* Reduce card hover animation complexity on mobile */
+  .feature-card:hover {
+    transform: translateY(-8px) !important;
+  }
+
+  /* Disable card-background on mobile */
+  .card-background {
+    display: none !important;
+  }
+
+  /* Disable hover animations on navigation on mobile */
+  nav a::after {
+    display: none !important;
+  }
+
+  .mobile-menu a::before {
+    display: none !important;
+  }
+
+  /* Reduce fade-in-up delay steps on mobile */
+  .fade-in-up:nth-child(1) {
+    animation-delay: 0s !important;
+  }
+
+  .fade-in-up:nth-child(2) {
+    animation-delay: 0.05s !important;
+  }
+
+  .fade-in-up:nth-child(3) {
+    animation-delay: 0.1s !important;
+  }
+
+  .fade-in-up:nth-child(n + 4) {
+    animation-delay: 0.15s !important;
+  }
+
+  /* Reduce service card animation on mobile */
+  .service-card {
+    transition: border-color 0.2s ease !important;
+  }
+
+  .service-card::before {
+    animation: none !important;
+  }
+
+  /* Reduce progress bar animation time on mobile */
+  .progress-fill {
+    animation: fillProgress-mobile 1s ease-out forwards !important;
+  }
+
+  @keyframes fillProgress-mobile {
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Disable complex gradient animations on mobile */
+  .cta-section:hover .cta-background {
+    transition: none !important;
+  }
+
+  /* Reduce button shadow effects on mobile */
+  .cta-button {
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2) !important;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4) !important;
+  }
+
+  /* Disable service card top border animation */
+  .service-card::after {
+    animation: none !important;
+  }
+
+  /* Reduce testimonial animation on mobile */
+  .testimonial-card {
+    transition: border-color 0.2s ease !important;
+  }
+
+  /* Disable portfolio slider animation on mobile */
+  .slider {
+    scroll-behavior: auto !important;
   }
 }
 
-/* Optimize performance on tablets */
+/* Tablet optimizations - reduce complexity but keep animations */
 @media (min-width: 768px) and (max-width: 1023px) {
   .blur-sphere {
-    filter: blur(60px);
+    filter: blur(120px) !important;
   }
 
-  .particles {
-    opacity: 0.5;
+  .sphere-1 {
+    box-shadow: 0 0 150px 60px rgba(255, 107, 107, 0.6) !important;
   }
 
-  .card-glow {
-    width: 100px;
-    height: 100px;
+  .sphere-2 {
+    box-shadow: 0 0 150px 60px rgba(79, 172, 254, 0.6) !important;
   }
 
-  .fade-in-up,
-  .fade-in {
-    animation: fadeInUp 0.8s ease-out forwards !important;
+  .sphere-3 {
+    box-shadow: 0 0 150px 60px rgba(251, 191, 36, 0.6) !important;
+  }
+
+  /* Reduce card hover transform on tablets */
+  .feature-card:hover {
+    transform: translateY(-12px) !important;
+  }
+
+  .about-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+  }
+
+  /* Simplify service card animations */
+  .service-card::before {
+    animation: none !important;
   }
 }
+
+/* Optimize font rendering for mobile */
+@media (max-width: 767px) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Disable GPU-heavy effects on mobile */
+@media (max-width: 767px) {
+  .blur-sphere,
+  .particle,
+  .feature-card,
+  .service-card,
+  .about-card {
+    will-change: auto !important;
+    backface-visibility: hidden;
+    perspective: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

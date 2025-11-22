@@ -2,6 +2,8 @@
 const isMobile = () => window.innerWidth < 768 || /iPhone|iPad|Android/i.test(navigator.userAgent)
 const isTablet = () => window.innerWidth >= 768 && window.innerWidth < 1024
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
 // ================= BURGER MENU =================
 const burgerMenu = document.getElementById("burgerMenu")
 const mobileMenu = document.getElementById("mobileMenu")
@@ -12,7 +14,6 @@ if (burgerMenu && mobileMenu) {
     mobileMenu.classList.toggle("active")
   })
 
-  // Close when clicking a link
   mobileMenu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       burgerMenu.classList.remove("active")
@@ -20,7 +21,6 @@ if (burgerMenu && mobileMenu) {
     })
   })
 
-  // Close when clicking outside
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".burger-menu") && !e.target.closest(".mobile-menu")) {
       burgerMenu.classList.remove("active")
@@ -245,8 +245,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // ================= FADE-IN OBSERVER (Optimized) =================
 const fadeObserverOptions = {
-  threshold: isMobile() ? 0.05 : 0.15,
-  rootMargin: isMobile() ? "0px" : "0px 0px -50px 0px",
+  threshold: isMobile() ? 0.01 : 0.15,
+  rootMargin: isMobile() ? "100px 0px" : "0px 0px -50px 0px",
 }
 
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -254,7 +254,9 @@ const fadeObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.style.animationPlayState = "running"
       entry.target.classList.add("visible")
-      fadeObserver.unobserve(entry.target)
+      if (!isMobile()) {
+        fadeObserver.unobserve(entry.target)
+      }
     }
   })
 }, fadeObserverOptions)
@@ -270,13 +272,11 @@ const progressObserver = new IntersectionObserver((entries) => {
       const progressFills = entry.target.querySelectorAll(".progress-fill")
       progressFills.forEach((fill, index) => {
         const widthValue = fill.style.width
+        const delay = isMobile() ? 50 + index * 100 : 100 + index * 200
         fill.style.width = "0"
-        setTimeout(
-          () => {
-            fill.style.width = widthValue
-          },
-          100 + index * 200,
-        )
+        setTimeout(() => {
+          fill.style.width = widthValue
+        }, delay)
       })
       progressObserver.unobserve(entry.target)
     }
@@ -289,8 +289,8 @@ document.querySelectorAll(".stats-card").forEach((card) => {
 
 // ================= COUNT EFFECT ANIMATION =================
 const countObserverOptions = {
-  threshold: isMobile() ? 0.05 : 0.15,
-  rootMargin: isMobile() ? "0px" : "0px 0px -50px 0px",
+  threshold: isMobile() ? 0.01 : 0.15,
+  rootMargin: isMobile() ? "100px 0px" : "0px 0px -50px 0px",
 }
 
 const countObserver = new IntersectionObserver((entries) => {
@@ -302,7 +302,7 @@ const countObserver = new IntersectionObserver((entries) => {
         const format = el.dataset.format || "number"
         const prefix = el.dataset.prefix || ""
         const suffix = el.dataset.suffix || ""
-        const duration = isMobile() ? 1000 : 2000
+        const duration = isMobile() ? 800 : 2000
 
         animateCount(el, target, format, prefix, suffix, duration)
       })
@@ -390,7 +390,6 @@ if (contactForm) {
 
     window.open(whatsappURL, "_blank")
 
-    // Reset form
     contactForm.reset()
   })
 }
