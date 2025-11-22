@@ -50,6 +50,14 @@ faqItems.forEach((item) => {
 
 // ================= SCROLL TO TOP BUTTON =================
 const scrollToTopBtn = document.getElementById("scrollToTopBtn")
+const logoButton = document.getElementById("logoButton")
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+}
 
 // Show/hide button based on scroll position
 window.addEventListener("scroll", () => {
@@ -61,12 +69,11 @@ window.addEventListener("scroll", () => {
 })
 
 // Smooth scroll to top on button click
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  })
-})
+scrollToTopBtn.addEventListener("click", scrollToTop)
+
+if (logoButton) {
+  logoButton.addEventListener("click", scrollToTop)
+}
 
 // ================= 3D CANVAS SETUP (Optimized for Mobile) =================
 const canvas = document.getElementById("canvas3d")
