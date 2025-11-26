@@ -286,7 +286,7 @@ const translations = {
       q7: {
         title: "What does your typical package cost?",
         answer:
-          "Pricing depends on scope: landing page builds start at $1,500. Full-stack ad management retainers typically run $2,000-$5,000/month based on ad spend volume and complexity. Let's chat about your budget and needs—I'll propose something that makes sense.",
+          "Pricing depends on scope: landing page builds start at 1,500 AED. Full-stack ad management retainers typically run 3,000-6,000 AED/month based on ad spend volume and complexity. Let's chat about your budget and needs—I'll propose something that makes sense.",
       },
       q8: {
         title: "Do you offer free consultations?",
@@ -592,7 +592,7 @@ const translations = {
       q7: {
         title: "Сколько стоят ваши услуги?",
         answer:
-          "Стоимость зависит от объема: лендинги от $1,500. Ведение рекламы обычно $2,000–$5,000 в месяц, зависит от бюджета и сложности. Обсудим ваш бюджет — предложу адекватный вариант.",
+          "Стоимость зависит от объема: лендинги от 1,500 AED. Ведение рекламы обычно 3,000–6,000 AED в месяц, зависит от бюджета и сложности. Обсудим ваш бюджет — предложу адекватный вариант.",
       },
       q8: {
         title: "Даете ли бесплатные консультации?",
