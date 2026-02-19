@@ -1503,6 +1503,10 @@ nav a:hover::after {
   background-image: url("img/shine.webp");
 }
 
+.portfolio-img-effect {
+  background-image: url("img/effect.webp");
+}
+
 .portfolio-card-content {
   padding: 1.5rem;
 }
