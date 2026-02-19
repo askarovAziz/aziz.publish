@@ -247,6 +247,15 @@ const translations = {
         tag4: "SEO",
         tag5: "Spa Photos",
       },
+      card10: {
+        title: "Effect Spa",
+        text: "Al Barsha Heights (Tecom) location. Full-service digital growth with performance ads and social media.",
+        tag1: "Google Ads",
+        tag2: "WebSite",
+        tag3: "SEO",
+        tag4: "Meta Ads",
+        tag5: "SMM",
+      },
     },
     faq: {
       badge: "❓ FREQUENTLY ASKED QUESTIONS",
@@ -553,6 +562,15 @@ const translations = {
         tag3: "Сайт",
         tag4: "SEO",
         tag5: "Фото спа",
+      },
+      card10: {
+        title: "Effect Spa",
+        text: "Локация Al Barsha Heights (Tecom). Комплексное продвижение: performance-реклама и SMM.",
+        tag1: "Google Ads",
+        tag2: "Сайт",
+        tag3: "SEO",
+        tag4: "Meta Ads",
+        tag5: "SMM",
       },
     },
     faq: {
